@@ -9,7 +9,7 @@ const Gamesound = () => {
   useEffect(() => {
     playing ? audio.play() : audio.pause();
   },
-  [playing]
+  [playing, audio]
 );
 
 useEffect(() => {
@@ -17,7 +17,7 @@ useEffect(() => {
   return () => {
     audio.removeEventListener('ended', () => setPlaying(false));
   };
-}, []);
+}, [audio]);
 
   const toggle = () => setPlaying(!playing)
     return (

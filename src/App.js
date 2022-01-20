@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './pokeball.css'
 import { useEffect, useState } from 'react';
@@ -29,7 +28,7 @@ const App = () => {
       setMissedPokemons([...missedPokemons, pokemon])
       alert(`Dejaste escapar a ${pokemon.name}`)
     }
-    let cleanPokemon = kantoPokemons.filter(item => item.id != pokemon.id)
+    let cleanPokemon = kantoPokemons.filter(item => item.id !== pokemon.id)
     setKantoPokemons(cleanPokemon)
   }
 
@@ -62,7 +61,7 @@ const App = () => {
         setGameEnded(true)
       }
     }
-  }, [kantoPokemons]);
+  }, [kantoPokemons, gameStarter]);
 
   return (
     <div>
