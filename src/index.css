@@ -208,12 +208,9 @@ code {
   left: 0;  
   top: 0;
   width: 100%;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
   background-color: white;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: white;
 }
 .status-container.success {
@@ -224,16 +221,16 @@ code {
   background-color: #e53935;
 }
 
-.status-preview-img {
-  margin-right: 10px;
+.pokemon-preview {
   background-color: white;
-  width: 32px;
-  height: 32px;
+  width:110px;
+  height:110px;
+  margin: 40% auto;
   display: block;
-  border-radius: 50%;
+  border-radius: 50%;   
 }
 
-.status-preview-img img {
-  width: 110%;
-  height: 110%;
+img.status-preview-img{
+  width: 100%;
+  height: 100%; 
 }

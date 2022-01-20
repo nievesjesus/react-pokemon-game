@@ -34,11 +34,11 @@ const App = () => {
     setStatusPokemon(pokemon)
     setShowStats(true)
     setTimeout(() => {
+        let cleanPokemon = kantoPokemons.filter(item => item.id !== pokemon.id)
+        setKantoPokemons(cleanPokemon)      
         setShowStats(false)
-    }, 2000);
+    }, 1500);
 
-    let cleanPokemon = kantoPokemons.filter(item => item.id !== pokemon.id)
-    setKantoPokemons(cleanPokemon)
   }
 
   const startGame = () => {
