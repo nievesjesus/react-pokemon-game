@@ -1,5 +1,5 @@
 import './App.css';
-import './pokeball.css'
+import './assets/styles/pokeball.css';
 import { useEffect, useState } from 'react';
 import { fetchKantoPokemon, fetchPokemonData } from './services/Pokemon';
 import Intro from './components/Intro';
@@ -12,7 +12,7 @@ import Gamesound from './components/Gamesound';
 const App = () => {
 
   const [kantoPokemons, setKantoPokemons] = useState([])
-  const [currentPokemon, setCurrentPokemon] = useState([])
+  const [currentPokemon, setCurrentPokemon] = useState(null)
   const [myPokemons, setMyPokemons] = useState([]) 
   const [missedPokemons, setMissedPokemons] = useState([])    
   const [gameStarter, setGameStarter] = useState(false)
@@ -30,6 +30,7 @@ const App = () => {
     }
     let cleanPokemon = kantoPokemons.filter(item => item.id !== pokemon.id)
     setKantoPokemons(cleanPokemon)
+    console.log(cleanPokemon)
   }
 
   const startGame = () => {
@@ -53,7 +54,7 @@ const App = () => {
   }
 
   const endGame = async () => {
-     if (gameEnded) {
+     if (gameStarter) {
       setGameEnded(true)
      }
   }
