@@ -195,3 +195,10 @@ code {
   padding: 10px;
   border-radius: 8px;
 }
+
+.available-pokemons {
+  font-size: 0.8rem;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  color: #c1c1c1;
+}

@@ -64,6 +64,7 @@ const App = () => {
     } else {
       endGame()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [kantoPokemons]);
 
   return (
@@ -71,7 +72,7 @@ const App = () => {
         <div className="App">
             <div className='game-title'>PokeGuest</div>            
             <div className="pokemon-container">            
-                {gameStarter && !loading ? <Level1 catchPokemon={catchPokemon} currentPokemon={currentPokemon}  /> : null}
+                {gameStarter && !loading ? <Level1 availablePokemons={kantoPokemons} catchPokemon={catchPokemon} currentPokemon={currentPokemon}  /> : null}
                 {gameEnded ? <Endgame missedPokemons={missedPokemons} myPokemons={myPokemons} /> : null }
                 {!gameStarter ? <Intro startGame={startGame} /> : null }  
                 {loading ? <Loading /> : null }                
