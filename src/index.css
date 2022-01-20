@@ -202,3 +202,38 @@ code {
   margin-bottom: -10px;
   color: #c1c1c1;
 }
+
+.status-container {
+  position: absolute;
+  left: 0;  
+  top: 0;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  font-size: 0.8rem;
+  color: white;
+}
+.status-container.success {
+  background-color: #43a047;
+}
+
+.status-container.fail {
+  background-color: #e53935;
+}
+
+.status-preview-img {
+  margin-right: 10px;
+  background-color: white;
+  width: 32px;
+  height: 32px;
+  display: block;
+  border-radius: 50%;
+}
+
+.status-preview-img img {
+  width: 110%;
+  height: 110%;
+}

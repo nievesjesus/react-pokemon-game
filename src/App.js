@@ -8,6 +8,7 @@ import Level1 from './components/Level1';
 import Endgame from './components/Endgame';
 import Pokedex from './components/Pokedex';
 import Gamesound from './components/Gamesound';
+import Status from './components/Status';
 
 const App = () => {
 
@@ -19,18 +20,25 @@ const App = () => {
   const [loading, setLoading] = useState(false)  
   const [gameEnded, setGameEnded] = useState(false)  
   const [openPokedex, setOpenPokedex] = useState(false)
+  const [showStatus, setShowStats] = useState(false)
+  const [catched, setCatched] = useState(false)
+  const [statusPokemon, setStatusPokemon] = useState(null);
 
   const catchPokemon = (success, pokemon) => {
+    setCatched(success)
     if (success) {
-      setMyPokemons([...myPokemons, pokemon])
-      alert(`Muy bien atrapaste a ${pokemon.name}`)      
+      setMyPokemons([...myPokemons, pokemon])     
     } else {
       setMissedPokemons([...missedPokemons, pokemon])
-      alert(`Dejaste escapar a ${pokemon.name}`)
     }
+    setStatusPokemon(pokemon)
+    setShowStats(true)
+    setTimeout(() => {
+        setShowStats(false)
+    }, 2000);
+
     let cleanPokemon = kantoPokemons.filter(item => item.id !== pokemon.id)
     setKantoPokemons(cleanPokemon)
-    console.log(cleanPokemon)
   }
 
   const startGame = () => {
@@ -76,7 +84,8 @@ const App = () => {
                 {gameStarter && !loading ? <Level1 availablePokemons={kantoPokemons} catchPokemon={catchPokemon} currentPokemon={currentPokemon}  /> : null}
                 {gameEnded ? <Endgame missedPokemons={missedPokemons} myPokemons={myPokemons} /> : null }
                 {!gameStarter ? <Intro startGame={startGame} /> : null }  
-                {loading ? <Loading /> : null }                
+                {loading ? <Loading /> : null }    
+                { showStatus ? <Status pokemon={statusPokemon} catched={catched} /> : null }             
             </div>
         </div>       
         <div onClick={ () => { setOpenPokedex(!openPokedex) }} className="pokeball">
