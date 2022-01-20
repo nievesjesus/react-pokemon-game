@@ -19,7 +19,7 @@ const App = () => {
   const [loading, setLoading] = useState(false)  
   const [gameEnded, setGameEnded] = useState(false)  
   const [openPokedex, setOpenPokedex] = useState(false)
-  
+
   const catchPokemon = (success, pokemon) => {
     if (success) {
       setMyPokemons([...myPokemons, pokemon])
@@ -52,16 +52,19 @@ const App = () => {
     })
   }
 
+  const endGame = async () => {
+     if (gameEnded) {
+      setGameEnded(true)
+     }
+  }
   useEffect(() => {
     if (kantoPokemons.length > 0)  {
       const item = kantoPokemons[Math.floor(Math.random()*kantoPokemons.length)];
       setCurrentPokemon(item);
     } else {
-      if (gameStarter) {
-        setGameEnded(true)
-      }
+      endGame()
     }
-  }, [kantoPokemons, gameStarter]);
+  }, [kantoPokemons]);
 
   return (
     <div>
