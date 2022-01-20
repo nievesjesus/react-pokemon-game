@@ -1,6 +1,6 @@
 const Intro = ({startGame}) => {
     return(
-        <div class="pre-game">
+        <div className="pre-game">
         <div className="pre-game-title">
           ¿Estas listos para demostrar cuanto sabes de pokemones?
         </div>

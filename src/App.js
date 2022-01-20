@@ -40,7 +40,7 @@ const App = () => {
 
   const getAllPokemons = async () => {
     setLoading(true)    
-    fetchKantoPokemon("2").then(async pokemons => {
+    fetchKantoPokemon("151").then(async pokemons => {
       const all = await Promise.all(
         pokemons.results.map(async (pokemon) => {return await fetchPokemonData(pokemon.url)})
       ) 

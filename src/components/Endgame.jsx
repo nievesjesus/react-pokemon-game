@@ -1,6 +1,6 @@
 const Endgame = ({missedPokemons,  myPokemons}) => {
     return(
-        <div class="pre-game">
+        <div className="pre-game">
         <div className="pre-game-title">
           El juego ha terminado
         </div>
